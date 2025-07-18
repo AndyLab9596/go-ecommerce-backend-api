@@ -1,9 +1,8 @@
 package controller
 
 import (
-	"net/http"
-
 	"github.com/AndyLab9596/go-ecommerce-backend-api/internal/service"
+	"github.com/AndyLab9596/go-ecommerce-backend-api/pkg/response"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,8 +18,5 @@ func NewUserController() *UserController {
 
 // controller -> service -> repo -> models -> dbs
 func (uc *UserController) GetUserByID(c *gin.Context) {
-
-	c.JSON(http.StatusOK, gin.H{
-		"message": uc.userService.GetInfoUser(),
-	})
+	response.SuccessReponse(c, response.ErrCodeSuccess, []string{"tipjs", "hello"})
 }
